@@ -114,20 +114,20 @@ export default function(opt) {
         }
 
 
-        /*
-        const clientId = GetClientIdFromHostname(hostname);
-        if (!clientId) {
-            appCallback(req, res);
-            return;
-        }
-        */
-
-       const clientId = 'tunnel';
+        
+        const clientId = 'tunnel';
 
         if (manager.hasClient(clientId)) {
             manager.handleRequest(clientId, req, res);
             return;
+        }else{
+            appCallback(req, res);
+            return;
         }
+
+
+
+        console.log(clientId, "pase");
 
         res.statusCode = 404;
         res.end('404');
