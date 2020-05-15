@@ -113,11 +113,16 @@ export default function(opt) {
             return;
         }
 
+
+        /*
         const clientId = GetClientIdFromHostname(hostname);
         if (!clientId) {
             appCallback(req, res);
             return;
         }
+        */
+
+       const clientId = 'tunnel';
 
         if (manager.hasClient(clientId)) {
             manager.handleRequest(clientId, req, res);
